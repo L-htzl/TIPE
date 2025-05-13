@@ -35,3 +35,14 @@ def r_ts_cfr():
 
 def c_ts_cfr():
     '''every column contains every number'''
+    C4=[[]for _ in range(9)]
+    r=-1
+    for j in range (1,10):
+        r+=1
+        for n in range (1,10):
+            l=[]
+            for i in range (1,10):
+                l.append(tsf(i,j,n))
+            C4[r].append(l)
+    return C4
+
