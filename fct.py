@@ -46,3 +46,19 @@ def c_ts_cfr():
             C4[r].append(l)
     return C4
 
+def box_ts_cfr():
+    ''' every 3x3 box contains every number '''
+    C5=[]
+    for r in range(3):
+        l1=[]
+        for s in range(3):
+            l2=[]
+            for n in range (1,10):
+                l=[]
+                for i in range (1,4):
+                    for j in range (1,4):
+                        l2.append(tsf(3*r+i,3*s+j,n))
+            l1.append(l2)
+        C5.append(l1)
+    return C5
+            
