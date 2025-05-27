@@ -1,0 +1,15 @@
+import numpy as np
+
+def nbr_a_cfr(x):
+    a=x//100
+    b=(x-a*100)//10
+    c=(x-b*10-a*100)
+    return (a,b,c)
+
+def affiche(cnf):
+    M=np.zeros((9,9))
+    for i in cnf :
+        (a,b,c)=nbr_a_cfr(i)
+        M[a-1,b-1]=c
+    return M
+
