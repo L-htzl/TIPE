@@ -72,7 +72,7 @@ def sudoku(conditions):
     #def init():
      #   return(au_moins_un_cfr()+au_plus_un_cfr()+r_ts_cfr()+c_ts_cfr()+box_ts_cfr()+conditions)
 
-    clauses=au_moins_un_cfr()+au_plus_un_cfr()+r_ts_cfr()+c_ts_cfr()+box_ts_cfr()+[conditions]
+    clauses=au_moins_un_cfr()+au_plus_un_cfr()+r_ts_cfr()+c_ts_cfr()+box_ts_cfr()+conditions
     cnf=CNF(from_clauses=clauses)
     with Solver(bootstrap_with=cnf) as solver :
         sol=solver.solve()
