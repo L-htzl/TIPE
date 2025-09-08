@@ -1,3 +1,3 @@
-TIPE valentin & louison --> problèmes SAT
+TIPE valentin & louison & hélène --> problèmes SAT
 
 --> application à la résolution de sudokus 
