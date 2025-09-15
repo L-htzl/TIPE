@@ -31,18 +31,22 @@ def chiffreconflit(L,i,j):
     l3=chiffrebloc(L,i,j)
     return l1+l2+l3
  
-# def casesuivante(L,i,j):
-#     k=i
-#     p=j+1
-#     while k<=8 and p<8 :
-#         if L[k][p] == 0:
-#             return (k,p)
-#         if p==7 :
-#             k+=1
-#             p=0
-#         if (k,p) == (8,0) : 
-#             return (9,0)
-#         else:
-#             p+=1
+def casesuivante(L,i,j):
+    k=i
+    p=j+1
+    if j==7: 
+        k=i+1 
+        p=0
+    while k<=8 and p<8 :
+        if L[k][p] == 0:
+            return (k,p)
+        if p==7 :
+            k+=1
+            p=0
+        if (k,p) == (8,0) : 
+            return (9,0)
+        else:
+            p+=1
         
+
 
