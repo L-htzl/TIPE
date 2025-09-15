@@ -1,3 +1,4 @@
+#https://fr.doczz.net/doc/3595989/tp---algorithmes-de-backtracking-et-r%C3%A9solution-de-sudoku
 L=[[0, 9, 0, 2, 0, 0, 6, 0, 5], [3, 2, 0,0, 0, 7, 0, 0, 0], [0, 7, 0, 9, 0, 5, 0, 0,8], [0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 7,0, 0, 0, 0, 9, 4], [6, 0, 0, 0, 0, 0, 0, 0,0], [0, 0, 8, 0, 0, 0, 0, 0, 7], [0, 3, 0,4, 9, 1, 5, 0, 0], [0, 0, 0, 0, 0, 3, 0, 0,0]]
 
 def chiffreligne(L, i):
@@ -30,5 +31,18 @@ def chiffreconflit(L,i,j):
     l3=chiffrebloc(L,i,j)
     return l1+l2+l3
  
-
+# def casesuivante(L,i,j):
+#     k=i
+#     p=j+1
+#     while k<=8 and p<8 :
+#         if L[k][p] == 0:
+#             return (k,p)
+#         if p==7 :
+#             k+=1
+#             p=0
+#         if (k,p) == (8,0) : 
+#             return (9,0)
+#         else:
+#             p+=1
         
+
