@@ -30,10 +30,5 @@ def chiffreconflit(L,i,j):
     l3=chiffrebloc(L,i,j)
     return l1+l2+l3
  
-    
-def casesuivante(L,i,j):
-    for k in range (i, 9):
-        for p in range(j,9):
-            if L[i][j+1]==0:
-                return (i,j+1)
+
         
