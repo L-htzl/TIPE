@@ -7,6 +7,7 @@ from pysat.formula import CNF
 from pysat.solvers import Solver
 
 conditions =[[122],[133],[179],[211],[244],[255],[288],[366],[377],[424],[435],[516],[547],[559],[568],[591],[673],[682],[738],[742],[829],[851],[863],[895],[937],[974],[986]]
+conditions2 =[[122],[133],[179],[211],[244],[255],[288],[366],[377],[424],[435],[516],[547],[559],[568],[591],[673],[682],[738],[742],[829],[851],[863],[895]]
 
 def tsf(i,j,n):
     ''' à un triplet (i,j,n) = (ligne,colonne, chiffre) associe un nombre unique correspondant -> fonction bijective '''
@@ -140,4 +141,5 @@ def toutes_sol (conditions):
         print(sudoku(conditions))
     
     
+
         
