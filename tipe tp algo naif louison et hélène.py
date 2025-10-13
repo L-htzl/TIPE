@@ -30,23 +30,20 @@ def chiffreconflit(L,i,j):
     l2=chiffrecolonnes(L,j)
     l3=chiffrebloc(L,i,j)
     return l1+l2+l3
- 
-def casesuivante(L,i,j):
-    k=i
-    p=j+1
-    if j==7: 
-        k=i+1 
-        p=0
-    while k<=8 and p<8 :
-        if L[k][p] == 0:
-            return (k,p)
-        if p==7 :
-            k+=1
-            p=0
-        if (k,p) == (8,0) : 
-            return (9,0)
-        else:
-            p+=1
+
+def casesuivante (i,j):
+    if j ==8 : return i+1,0
+    return i,j+1
         
+
+def solution(L):
+    def aux (i,j):
+        if i == 9 and j == 0:
+            return True
+        else:
+            if L[i][j]!=0:
+               aux(casesuivante(i,j))
+            l=[ k for k in range (1,10) if k not in chiffreconflit(L,i,j)]
+            for e in l:
 
 
