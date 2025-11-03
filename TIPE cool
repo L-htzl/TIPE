@@ -219,11 +219,10 @@ def naif_a_sat (t):
             l.append([nbr])
     return l
             
-def retirer (l,e):
-    i=0
-    while l[i]!=e and i<len(l):
-        i+=1
-    l= l[:i-1]+l[i:]
+def retirer(l,e):
+    for i in range(len(l)):
+        if l[i]==e:
+            return l[:i]+l[i+1:]
 
 def temps_naif(sudokunaif):
     t0=time.time()
@@ -242,6 +241,7 @@ def complexite (nbfinal):
     x=[i for i in range(0,100)]
     y_naif=[]
     y_sat=[]
+    deja_efface=[]
     sudokunaif= [[8, 9, 1, 2, 3, 4, 6, 7, 5],
      [3, 2, 5, 6, 8, 7, 4, 1, 9],
      [4, 7, 6, 9, 1, 5, 3, 2, 8],
@@ -257,11 +257,13 @@ def complexite (nbfinal):
     
     while len(sudokusat)> nbfinal:
         aleatoire = random.randint(1,999)
-        (a,b,c) = nbr_a_cfr(aleatoire)
-        sudokunaif[a][b]=0
-        retirer(sudokusat,aleatoire)
-        y_naif.append(temps_naif(sudokunaif))
-        y_sat.append(temps_sat(sudokusat))
+        if aleatoire not in deja_efface:
+            deja_efface.append(aleatoire)
+            (a,b,c) = nbr_a_cfr(aleatoire)
+            sudokunaif[a][b]=0
+            retirer(sudokusat,aleatoire)
+            y_naif.append(temps_naif(sudokunaif))
+            y_sat.append(temps_sat(sudokusat))
     plt.plot(x,y_naif,label='algo naïf')
     plt.plot(x,y_sat,label='algo sat')
     plt.title('complexité')
