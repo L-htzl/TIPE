@@ -2,3 +2,11 @@
 #https://zanotti.univ-tln.fr/ALGO/I51/SudokuNbGrilles.pdf 
 « il ne peut y avoir qu’un seul et
 unique chiffre », Su = chiffre, Doku = unique, traductions approximatives).
+
+
+pouyr les carrés bimagiques:
+un carré magique ou matrice magique est tel que la somme de tous coefficients d'une ligne a même valeur pour chaque ligne, pour chauqe colonne et cette valeur est aussi la trace et l'antitrace de la matrice.
+un carré est n magique quand la puissance n du carré reste magique. 
+
+https://publimath.fr/avm07045/
+http://www.multimagie.com/Francais/SudokuBimagic.htm
