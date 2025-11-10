@@ -2,6 +2,7 @@
 
 #algo sat
 
+import copy
 import numpy as np
 import time
 from pysat.formula import CNF
@@ -234,8 +235,9 @@ def retirer(l,e):
             return l[:i]+l[i+1:]
         
 def temps_naif(sudokunaif):
+    s=copy.deepcopy(sudokunaif)
     t0=time.time()
-    solution(sudokunaif)
+    solution(s)
     t1=time.time()
     return t1-t0
 
@@ -275,4 +277,5 @@ def complexite (nbfinal):
     plt.xlabel("nombre d'inconnues")
     plt.ylabel("temps")
     plt.show()
+
         
