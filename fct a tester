@@ -1,0 +1,14 @@
+#fct hexa a tester 
+
+def tsf(i,j,n):
+    ''' à un triplet (i,j,n) = (ligne,colonne, 'chiffre'(en base 16)) associe un nombre unique correspondant -> fonction bijective '''
+    numero_case= 16*(i-1)+j
+    if n<10: return int(str(numero_case)+'0'+str(n))
+    return int(str(numero_case)+str(n))
+
+def nbr_a_cfr(x):
+    case=(x-x%100)//100
+    j=case%16
+    i=int(case/16)+1
+    n=x-case*100
+    return (i,j,n)
