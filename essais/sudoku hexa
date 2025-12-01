@@ -1,0 +1,143 @@
+#algo sat
+
+import numpy as np
+import time
+from pysat.formula import CNF
+from pysat.solvers import Solver
+import random 
+import matplotlib.pyplot as plt
+import copy
+
+conditions = [[109],[215],[307],[403],[606],[808],[1013],[1202],[1416],[1512],[2010],[2207],[2313],[2405],[2601],[2914],[3015],
+              [3102],[3209],[3305],[3712],[4110],[4208],[4307],[4713],[4801],[5011],[5101],[5410],[5602],[5705],[5915],[6009],
+              [6107],[6304],[6508],[6716],[6805],[6901],[7004],[7213],[7502],[7715],[8014],[8207],[8411],[8616],[8706],[8915],
+              [9010],[9103],[9301],[9405],[10214],[10410],[10708],[11012],[11103],[11216],[11515],[11705],[11803],[12104],[12301],
+              [12506],[12611],[13016],[13208],[13306],[13607],[13809],[14014],[14103],[14315],[14410],[14511],[14613],[14712],[14909],
+              [15001],[15105],[15516],[15906],[16106],[16503],[16608],[16710],[16901],[17002],[17112],[17215],[17316],[17505],
+              [17613],[17810],[18113],[18215],[18304],[18416],[18508],[18806],[19001],[19307],[19408],[19511],[19616],[20006],
+              [20310],[20401],[20714],[20815],[20915],[21103],[21204],[21516],[21712],[22008],[22105],[22407],[22514],[22809],
+              [22907],[23112],[23203],[23506],[23708],[24011],[24201],[24310],[24412],[24613],[24714],[25207],[25406],[25603]]
+
+def tsf(i,j,n):
+    ''' à un triplet (i,j,n) = (ligne,colonne, 'chiffre'(en base 16)) associe un nombre unique correspondant -> fonction bijective '''
+    numero_case= 16*(i-1)+j
+    if n<10: return int(str(numero_case)+'0'+str(n))
+    return int(str(numero_case)+str(n))
+            
+        
+
+def au_moins_un_cfr():
+    ''' every cell contains at least one number'''
+    C1=[]
+    for i in range (1,17):
+        for j in range (1,17):
+            l=[]
+            for n in range (1,17):
+                l.append(tsf(i,j,n))
+            C1.append(l)
+    return C1
+
+def au_plus_un_cfr():
+    C2=[]
+    for i in range(1,17):
+        for j in range(1,17):
+            for x in range(1,17):
+                for y in range(x+1,17):
+                    C2.append([-tsf(i,j,x),-tsf(i,j,y)])
+    return C2
+
+
+
+def r_ts_cfr():
+    '''every row contains every number'''
+    C3=[]
+    for i in range (1,17):
+        for n in range (1,17):
+            l=[]
+            for j in range (1,17):
+                l.append(tsf(i,j,n))
+            C3.append(l)
+    return C3
+
+def c_ts_cfr():
+    '''every column contains every number'''
+    C4=[]
+    for j in range (1,17):
+        for n in range (1,17):
+            l=[]
+            for i in range (1,17):
+                l.append(tsf(i,j,n))
+            C4.append(l)
+    return C4
+
+
+def box_ts_cfr():
+    ''' every 3x3 box contains every number '''
+    C5=[]
+    for r in range(4):
+        for s in range(4):
+            for n in range (1,17):
+                l=[]
+                for i in range (1,5):
+                    for j in range (1,5):
+                        l.append(tsf(4*r+i,4*s+j,n))
+                C5.append(l)
+    return C5
+
+def pas_la_mm_sol(cnf):
+    l=[-x for x in cnf]
+    return [l]    
+    
+conditions_sudoku = au_moins_un_cfr()+au_plus_un_cfr()+r_ts_cfr()+c_ts_cfr()+box_ts_cfr()
+
+    
+def nbr_a_cfr(x):
+    case = x // 100
+    n = x % 100
+    j = case % 16
+    if j == 0:
+        j = 16
+    i = (case - j) // 16 + 1
+    return (i, j, n)
+
+def convertir(c):
+    return hex(c)
+    
+def affiche(cnf):
+    M=np.zeros((16,16),dtype=int)
+    for i in cnf :
+        (a,b,c)=nbr_a_cfr(i[0])
+        M[a-1,b-1]=c
+    return M
+
+def sudoku(conditions=[]):
+    
+    clauses= conditions_sudoku+conditions
+    cnf=CNF(from_clauses=clauses)
+    with Solver(bootstrap_with=cnf) as solver :
+        sol=solver.solve()
+        #print(solver.solve())
+        res=solver.get_model()
+    c=0
+    bad_res=[]
+    for x in res:
+        if x>0:
+            c+=1
+            bad_res.append(x)
+    print(affiche(bad_res))
+
+def sudoku_cnf(conditions=[]):
+    clauses=conditions_sudoku+conditions
+    cnf=CNF(from_clauses=clauses)
+    with Solver(bootstrap_with=cnf) as solver :
+        sol=solver.solve()
+        #print(solver.solve())
+        res=solver.get_model()
+    c=0
+    bad_res=[]
+    for x in res:
+        if x>0:
+            c+=1
+            bad_res.append(x)
+    return (bad_res)
+
