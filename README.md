@@ -10,3 +10,6 @@ explaining similarities between solving a sudoku and carrying out scientific res
 (Source: http://www.youtube.com/watch?v=WMNal53nBtE from 3:25 to 4:18)
 
 pour louison :(https://stackoverflow.com/questions/63109860/how-to-install-python-packages-for-spyder)
+
+
+ MCOT: https://docs.google.com/document/d/18cyYpsczEZfyYXxAvRKg0m__7i4DzYahdR917Jpaenw/edit?pli=1&tab=t.0
