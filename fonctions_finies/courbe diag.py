@@ -127,13 +127,20 @@ conditions_sudoku = diag_sc_au_plus_un_cfr()+diag_sc_au_moins_un_cfr()+diag_pr_a
 #     c=(x-b*10-a*100)
 #     return (a,b,c)
 
+#def affiche(cnf):
+#    M=np.zeros((9,9),dtype=int)
+#    for i in cnf :
+#        (a,b,c)=nbr_a_cfr(i)
+#        M[a-1,b-1]=c
+#    return M
+    
 def affiche(cnf):
-    M=np.zeros((9,9),dtype=int)
+    M=[[0 for _ in range(9)] for _ in range(9)]
     for i in cnf :
         (a,b,c)=nbr_a_cfr(i)
-        M[a-1,b-1]=c
+        M[a-1][b-1]=c
     return M
-
+    
 def sudoku(conditions=[]):
     
     clauses= conditions_sudoku+conditions
@@ -143,7 +150,7 @@ def sudoku(conditions=[]):
             return None
         #print(solver.solve())
         res=solver.get_model()
-    return [x for x in res if x > 0]
+    return affiche([x for x in res if x > 0])
 
 def sudoku_cnf(conditions=[]):
     clauses=conditions_sudoku+conditions
@@ -412,9 +419,10 @@ def complexite (nbfinal):
         y_sat.append(temps_sat(sudokusat))
     plt.plot(x,y_naif,label='algo naïf', color='red')
     plt.plot(x,y_sat,label='algo sat', color='blue')
-    plt.title('complexité')
+    plt.title('complexité Sudoku X')
     plt.xlabel("nombre d'inconnues")
     plt.ylabel("temps")
     plt.show()
 
         
+
