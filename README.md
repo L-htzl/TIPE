@@ -11,3 +11,8 @@ explaining similarities between solving a sudoku and carrying out scientific res
 
 
  MCOT: https://docs.google.com/document/d/18cyYpsczEZfyYXxAvRKg0m__7i4DzYahdR917Jpaenw/edit?pli=1&tab=t.0
+ 
+pour héléène à lire chez toi : et à mettre dans la bibliographie commentée peut-être
+https://www.palermo.edu/ingenieria/Cica2009/Papers/64.pdf
+https://zanotti.univ-tln.fr/ALGO/I51/SudokuNbGrilles.pdf
+http://anytime.cs.umass.edu/aimath06/proceedings/P34.pdf
