@@ -7,6 +7,16 @@ TIPE valentin & louison & hélène --> problèmes SAT
 
 
 
+
+
+
+
+
+
+
+
+
+
 à regarder 6
 “In a [sudoku] puzzle, what you haven’t looked at yet is probably where you’re meant to make progress. And
 in science it’s what you haven’t looked at yet often times.” —Thomas Snyder (a.k.a. Dr. Sudoku), three-times sudoku world champion, 
