@@ -22,3 +22,4 @@ pour héléène à lire chez toi : et à mettre dans la bibliographie commentée
 https://www.palermo.edu/ingenieria/Cica2009/Papers/64.pdf
 https://zanotti.univ-tln.fr/ALGO/I51/SudokuNbGrilles.pdf
 http://anytime.cs.umass.edu/aimath06/proceedings/P34.pdf
+biographie G.Tarry : https://www.math.univ-toulouse.fr/~jbhu/Sudoku.pdf
