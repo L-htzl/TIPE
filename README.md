@@ -1,6 +1,7 @@
 TIPE valentin & louison & hélène --> problèmes SAT
 
 --> application à la résolution de sudokus 
+<img width="386" height="278" alt="Figure 2026-03-09 121724" src="https://github.com/user-attachments/assets/49a32023-6e5b-4669-828c-a394b018561f" />
 
 à regarder 6
 “In a [sudoku] puzzle, what you haven’t looked at yet is probably where you’re meant to make progress. And
