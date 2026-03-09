@@ -2,17 +2,7 @@ TIPE valentin & louison & hélène --> problèmes SAT
 
 --> application à la résolution de sudokus 
 
-<img width="900" height="800" alt="Figure 2026-03-09 121724" src="https://github.com/user-attachments/assets/49a32023-6e5b-4669-828c-a394b018561f" />
-
-
-
-
-
-
-
-
-
-
+<img width="772" height="556" alt="Figure 2026-03-09 121724" src="https://github.com/user-attachments/assets/49a32023-6e5b-4669-828c-a394b018561f" />
 
 
 
