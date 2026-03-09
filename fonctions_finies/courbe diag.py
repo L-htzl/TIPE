@@ -284,7 +284,15 @@ def naif_a_sat (t):
             nbr=cfr_a_nbr(i+1,j+1,t[i][j])
             l.append([nbr])
     return l
-            
+
+def sat_a_naif(cnf):
+    naif=[[0 for i in range (9)] for i in range (9)]
+    for i in cnf :
+        cfr=i[0]
+        (a,b,c)=nbr_a_cfr(cfr)
+        naif[a-1][b-1]=c
+    return naif
+    
 # def retirer (l,e):
 #     print(len(l))
 #     i=0
@@ -424,5 +432,30 @@ def complexite (nbfinal):
     plt.ylabel("temps")
     plt.show()
 
-        
+
+def complexite2():
+    x=[i for i in range(82)]
+    y_naif=[]
+    y_sat=[]
+    sudokusat=sudoku_cnf()
+    sudokunaif= sat_a_naif(sudokusat)
+    print(sudokusat,sudokunaif)
+    print(temps_naif(sudokunaif),temps_sat(sudokusat))
+    y_naif.append(temps_naif(sudokunaif))
+    y_sat.append(temps_sat(sudokusat))
+    while len(sudokusat)>0:
+        aleatoire = random.choice(sudokusat)
+        (a,b,c) = nbr_a_cfr(aleatoire[0])
+        sudokunaif[a-1][b-1]=0
+        sudokusat=retirer(sudokusat,aleatoire)
+        y_naif.append(temps_naif(sudokunaif))
+        y_sat.append(temps_sat(sudokusat))
+    plt.plot(x,y_naif,label='algo naïf')
+    plt.plot(x,y_sat,label='algo sat')
+    plt.title('complexité')
+    plt.xlabel("nombre d'inconnues")
+    plt.ylabel("temps")
+    plt.show()
+    
+
 
